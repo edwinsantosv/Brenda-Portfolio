@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brenda Jauregui — Portfolio Options</title>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="80" fill="#1A0F2E"/>
+    <rect x="10" y="15" width="40" height="5" rx="2" fill="#8B5CF6"/>
+    <rect x="10" y="25" width="60" height="8" rx="2" fill="#E9E0FF"/>
+    <rect x="10" y="38" width="55" height="4" rx="2" fill="#8B80A8" opacity="0.6"/>
+    <rect x="10" y="47" width="45" height="4" rx="2" fill="#8B80A8" opacity="0.4"/>
+    <rect x="10" y="58" width="30" height="8" rx="2" fill="#8B5CF6" opacity="0.8"/>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #111; font-family: 'DM Sans', sans-serif; overflow: hidden; height: 100vh; }
+
+  /* ===================== VARIANT 1: DARK GOLD ===================== */
+  .v1 {
+    --bg: #0E0E0E;
+    --bg2: #161616;
+    --accent: #C9A84C;
+    --accent2: #E8D08A;
+    --text: #F5F0E8;
+    --muted: #888880;
+    --border: #2A2A2A;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .v1-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .v1-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px; letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+  .v1-nav-links {
+    display: flex; gap: 32px;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .v1-nav-links span { cursor: pointer; transition: color 0.2s; }
+  .v1-nav-links span:hover { color: var(--accent); }
+  .v1-hero {
+    padding: 60px 48px 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+  }
+  .v1-eyebrow {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .v1-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--accent);
+  }
+  .v1-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px; line-height: 1.05;
+    color: var(--text);
+  }
+  .v1-title em { color: var(--accent); font-style: italic; }
+  .v1-subtitle {
+    font-size: 14px; line-height: 1.7; color: var(--muted);
+    margin-top: 20px; max-width: 360px;
+  }
+  .v1-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 32px;
+    padding: 12px 28px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer;
+  }
+  .v1-stats {
+    display: flex; flex-direction: column; gap: 20px;
+    padding-left: 40px; border-left: 1px solid var(--border);
+  }
+  .v1-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 40px; color: var(--accent);
+  }
+  .v1-stat-label {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-top: 4px;
+  }
+  .v1-roles {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 0 48px 32px;
+  }
+  .v1-tag {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    font-size: 11px; letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .v1-tag.active {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .v1-section {
+    padding: 0 48px;
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+  }
+  .v1-section-title {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
+  }
+  .v1-exp-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .v1-exp-card {
+    background: var(--bg2);
+    padding: 20px;
+    border-left: 2px solid var(--accent);
+  }
+  .v1-exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px; color: var(--text);
+  }
+  .v1-exp-co {
+    font-size: 11px; color: var(--accent); letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+  .v1-exp-period {
+    font-size: 10px; color: var(--muted); margin-top: 4px;
+  }
+  .v1-exp-desc {
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  /* ===================== VARIANT 2: CREAM EDITORIAL ===================== */
+  .v2 {
+    --bg: #F5F0E8;
+    --bg2: #EDE7D8;
+    --ink: #1A1612;
+    --ink2: #3D3530;
+    --accent: #8B4513;
+    --muted: #9A8E82;
+    --border: #D8CFC4;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .v2-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .v2-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; letter-spacing: 0.06em;
+    color: var(--ink);
+  }
+  .v2-nav-links {
+    display: flex; gap: 28px;
+    font-size: 12px; letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  .v2-hero {
+    padding: 48px 48px 0;
+    display: grid; grid-template-columns: 3fr 2fr; gap: 40px; align-items: start;
+  }
+  .v2-big-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px; line-height: 0.9; font-weight: 300;
+    color: var(--ink);
+  }
+  .v2-big-title strong { font-weight: 500; }
+  .v2-big-title em { font-style: italic; color: var(--accent); }
+  .v2-role-pill {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 8px 20px;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-top: 24px;
+  }
+  .v2-aside {
+    padding-top: 8px;
+  }
+  .v2-desc {
+    font-size: 13px; line-height: 1.8; color: var(--ink2);
+  }
+  .v2-divider {
+    width: 40px; height: 1px; background: var(--accent);
+    margin: 16px 0;
+  }
+  .v2-highlights {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .v2-highlight {
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .v2-hl-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; color: var(--accent);
+    line-height: 1;
+  }
+  .v2-hl-text {
+    font-size: 12px; color: var(--muted);
+  }
+  .v2-bottom {
+    padding: 24px 48px 0;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+  .v2-card {
+    padding: 20px 24px;
+    border-right: 1px solid var(--border);
+  }
+  .v2-card:last-child { border-right: none; }
+  .v2-card-label {
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .v2-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 400; color: var(--ink);
+  }
+  .v2-card-sub {
+    font-size: 11px; color: var(--muted); margin-top: 4px;
+    line-height: 1.5;
+  }
+  .v2-card-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 10px;
+    background: var(--bg2);
+    font-size: 10px; color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  /* ===================== VARIANT 4: DEEP PURPLE ===================== */
+  .v4 {
+    --bg: #1A0F2E;
+    --bg2: #241540;
+    --bg3: #2D1B52;
+    --accent: #8B5CF6;
+    --accent2: #A78BFA;
+    --light: #E9E0FF;
+    --muted: #8B80A8;
+    --border: #2E2050;
+    background: var(--bg);
+    color: var(--light);
+    font-family: 'DM Sans', sans-serif;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .v4-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 26px 48px;
+  }
+  .v4-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; letter-spacing: 0.03em;
+    color: var(--light);
+  }
+  .v4-logo span { color: var(--accent2); font-style: italic; }
+  .v4-nav-links {
+    display: flex; gap: 28px;
+    font-size: 12px; letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .v4-nav-cta {
+    padding: 8px 22px;
+    background: var(--accent);
+    color: white;
+    font-size: 12px; letter-spacing: 0.04em;
+    border-radius: 2px;
+  }
+  .v4-body {
+    display: grid; grid-template-columns: 1fr 280px;
+    gap: 0;
+    height: calc(100% - 74px);
+  }
+  .v4-main {
+    padding: 44px 48px;
+    border-right: 1px solid var(--border);
+  }
+  .v4-tag-row {
+    display: flex; gap: 8px; margin-bottom: 28px;
+  }
+  .v4-tag {
+    padding: 5px 14px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    font-size: 11px; color: var(--accent2);
+    letter-spacing: 0.06em; border-radius: 2px;
+  }
+  .v4-tag.hot {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .v4-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 54px; line-height: 1.0;
+    color: var(--light);
+  }
+  .v4-title em {
+    font-style: italic; color: var(--accent2);
+  }
+  .v4-sub {
+    font-size: 14px; line-height: 1.7; color: var(--muted);
+    margin-top: 18px; max-width: 400px;
+  }
+  .v4-exp-list {
+    margin-top: 32px; display: flex; flex-direction: column; gap: 0;
+  }
+  .v4-exp-row {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 20px; padding: 16px 0;
+    border-top: 1px solid var(--border);
+    align-items: start;
+  }
+  .v4-exp-year {
+    font-size: 11px; color: var(--muted); letter-spacing: 0.06em;
+    padding-top: 2px;
+  }
+  .v4-exp-role {
+    font-size: 14px; font-weight: 500; color: var(--light);
+  }
+  .v4-exp-co {
+    font-size: 12px; color: var(--accent2); margin-top: 2px;
+  }
+  .v4-exp-desc {
+    font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.6;
+  }
+  .v4-side {
+    padding: 44px 28px;
+    background: var(--bg2);
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .v4-side-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 14px;
+  }
+  .v4-stat {
+    text-align: center;
+    padding: 16px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+  }
+  .v4-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px; color: var(--accent2); line-height: 1;
+  }
+  .v4-stat-text {
+    font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.4;
+  }
+  .v4-skills {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .v4-skill-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px;
+  }
+  .v4-skill-name { color: var(--light); }
+  .v4-skill-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent);
+  }
+  .v4-skill-dot.mid { background: var(--accent2); opacity: 0.6; }
+
+  /* ===================== VARIANT 3: MODERN MINIMAL ===================== */
+  .v3 {
+    --bg: #FAFAF8;
+    --bg2: #F0F0EC;
+    --ink: #18181A;
+    --accent: #2D6A4F;
+    --accent-light: #D8EDD5;
+    --muted: #888;
+    --border: #E4E4E0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .v3-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+  }
+  .v3-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px; letter-spacing: 0.02em;
+  }
+  .v3-nav-right {
+    display: flex; align-items: center; gap: 24px;
+  }
+  .v3-nav-links {
+    display: flex; gap: 24px;
+    font-size: 13px; color: var(--muted);
+  }
+  .v3-cta-nav {
+    padding: 8px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 12px;
+  }
+  .v3-hero {
+    padding: 40px 48px 0;
+    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start;
+  }
+  .v3-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
+    margin-bottom: 20px;
+  }
+  .v3-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); display: block;
+  }
+  .v3-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 56px; line-height: 1.0;
+    color: var(--ink);
+  }
+  .v3-title span { color: var(--accent); }
+  .v3-tagline {
+    font-size: 14px; line-height: 1.7; color: var(--muted);
+    margin-top: 16px; max-width: 420px; font-weight: 300;
+  }
+  .v3-actions {
+    display: flex; gap: 12px; margin-top: 28px; align-items: center;
+  }
+  .v3-btn-primary {
+    padding: 12px 28px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 13px;
+  }
+  .v3-btn-sec {
+    padding: 12px 28px;
+    border: 1px solid var(--border);
+    font-size: 13px; color: var(--muted);
+  }
+  .v3-skills-panel {
+    background: var(--bg2);
+    padding: 24px;
+    min-width: 200px;
+  }
+  .v3-skills-title {
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
+  }
+  .v3-skill {
+    display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px;
+  }
+  .v3-skill-name {
+    font-size: 12px; color: var(--ink); font-weight: 500;
+  }
+  .v3-skill-bar {
+    height: 3px; background: var(--border); border-radius: 2px; overflow: hidden;
+  }
+  .v3-skill-fill {
+    height: 100%; background: var(--accent); border-radius: 2px;
+  }
+  .v3-cards-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0;
+    padding: 28px 48px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+  }
+  .v3-mini-card {
+    padding: 16px 20px;
+    border-right: 1px solid var(--border);
+  }
+  .v3-mini-card:last-child { border-right: none; }
+  .v3-mini-icon {
+    width: 32px; height: 32px; background: var(--accent-light);
+    border-radius: 8px; margin-bottom: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .v3-mini-title {
+    font-size: 13px; font-weight: 500; color: var(--ink);
+  }
+  .v3-mini-sub {
+    font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+/* ── VARIANT 1: DARK GOLD ── */
+function V1() {
+  return (
+    <div className="v1">
+      <nav className="v1-nav">
+        <div className="v1-logo">BJ</div>
+        <div className="v1-nav-links">
+          <span>Perfil</span>
+          <span>Experiencia</span>
+          <span>Proyectos</span>
+          <span>Contacto</span>
+        </div>
+      </nav>
+
+      <div className="v1-hero">
+        <div>
+          <div className="v1-eyebrow">Product &amp; Design Management</div>
+          <h1 className="v1-title">
+            Brenda<br />
+            <em>Jauregui</em>
+          </h1>
+          <p className="v1-subtitle">
+            UX Designer en transición hacia roles de gestión de producto y equipos. Combino pensamiento de diseño con visión estratégica para liderar desde la empatía.
+          </p>
+          <div className="v1-cta">Ver proyectos →</div>
+        </div>
+
+        <div className="v1-stats">
+          <div>
+            <div className="v1-stat-num">5+</div>
+            <div className="v1-stat-label">Años en UX &amp; Producto</div>
+          </div>
+          <div>
+            <div className="v1-stat-num">3</div>
+            <div className="v1-stat-label">Equipos liderados</div>
+          </div>
+          <div>
+            <div className="v1-stat-num">12</div>
+            <div className="v1-stat-label">Proyectos entregados</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="v1-roles">
+        {['UX Lead', 'Product Strategy', 'Team Management', 'Stakeholder Management', 'Design Ops', 'Agile'].map(t => (
+          <div key={t} className={`v1-tag${t === 'Product Strategy' ? ' active' : ''}`}>{t}</div>
+        ))}
+      </div>
+
+      <div className="v1-section">
+        <div className="v1-section-title">Experiencia destacada</div>
+        <div className="v1-exp-grid">
+          {[
+            { role: 'UX Designer Lead', co: 'Empresa actual', period: '2023 – presente', desc: 'Liderazgo de iniciativas de diseño centrado en el usuario, coordinación de equipos multidisciplinarios y alineación con objetivos de negocio.' },
+            { role: 'Product Designer', co: 'Proyecto anterior', period: '2021 – 2023', desc: 'Definición de roadmap de producto, investigación con usuarios y comunicación con stakeholders para priorización de features.' },
+          ].map(e => (
+            <div key={e.role} className="v1-exp-card">
+              <div className="v1-exp-role">{e.role}</div>
+              <div className="v1-exp-co">{e.co}</div>
+              <div className="v1-exp-period">{e.period}</div>
+              <div className="v1-exp-desc">{e.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── VARIANT 2: CREAM EDITORIAL ── */
+function V2() {
+  return (
+    <div className="v2">
+      <nav className="v2-nav">
+        <div className="v2-logo">Brenda Jauregui</div>
+        <div className="v2-nav-links">
+          <span>Sobre mí</span>
+          <span>Trabajo</span>
+          <span>Logros</span>
+          <span>Contacto</span>
+        </div>
+      </nav>
+
+      <div className="v2-hero">
+        <div>
+          <div className="v2-big-title">
+            <div>Design</div>
+            <div><strong>Leadership</strong></div>
+            <div><em>&amp; Strategy</em></div>
+          </div>
+          <div className="v2-role-pill">UX → Product Management</div>
+        </div>
+
+        <div className="v2-aside">
+          <p className="v2-desc">
+            Soy Brenda Jauregui, UX designer con experiencia liderando procesos de diseño de producto y gestionando equipos multidisciplinarios. Actualmente en transición hacia roles de product management y gestión estratégica.
+          </p>
+          <div className="v2-divider"></div>
+          <div className="v2-highlights">
+            <div className="v2-highlight">
+              <span className="v2-hl-num">5+</span>
+              <span className="v2-hl-text">años de experiencia en UX y diseño de producto</span>
+            </div>
+            <div className="v2-highlight">
+              <span className="v2-hl-num">∞</span>
+              <span className="v2-hl-text">curiosidad por resolver problemas complejos</span>
+            </div>
+            <div className="v2-highlight">
+              <span className="v2-hl-num">NASA</span>
+              <span className="v2-hl-text">Space Apps Challenge 2021 — proyecto de IA/ML</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="v2-bottom">
+        {[
+          { label: 'Gestión', title: 'Liderazgo de equipos', sub: 'Coordinación de squads multidisciplinarios, OKRs y roadmaps', tag: 'Management' },
+          { label: 'Estrategia', title: 'Visión de producto', sub: 'Definición de estrategia, priorización y alineación con negocio', tag: 'Strategy' },
+          { label: 'Diseño', title: 'Human-centered design', sub: 'Research, prototipado, systems design y UX writing', tag: 'UX Design' },
+        ].map(c => (
+          <div key={c.label} className="v2-card">
+            <div className="v2-card-label">{c.label}</div>
+            <div className="v2-card-title">{c.title}</div>
+            <div className="v2-card-sub">{c.sub}</div>
+            <div className="v2-card-tag">{c.tag}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── VARIANT 3: MODERN MINIMAL ── */
+function V3() {
+  const skills = [
+    { name: 'Product Strategy', pct: 88 },
+    { name: 'Team Management', pct: 75 },
+    { name: 'UX Research', pct: 92 },
+    { name: 'Stakeholder Mgmt', pct: 80 },
+  ];
+
+  return (
+    <div className="v3">
+      <nav className="v3-nav">
+        <div className="v3-logo">Brenda Jauregui</div>
+        <div className="v3-nav-right">
+          <div className="v3-nav-links">
+            <span>Trabajo</span>
+            <span>Sobre mí</span>
+            <span>Blog</span>
+          </div>
+          <div className="v3-cta-nav">Hablemos</div>
+        </div>
+      </nav>
+
+      <div className="v3-hero">
+        <div>
+          <div className="v3-badge">Disponible para nuevos roles</div>
+          <h1 className="v3-title">
+            UX Designer<br />
+            <span>turned</span><br />
+            Product Leader
+          </h1>
+          <p className="v3-tagline">
+            Combino 5+ años de diseño centrado en el usuario con habilidades de gestión estratégica para liderar productos y equipos con impacto real.
+          </p>
+          <div className="v3-actions">
+            <div className="v3-btn-primary">Ver mi trabajo</div>
+            <div className="v3-btn-sec">LinkedIn ↗</div>
+          </div>
+        </div>
+
+        <div className="v3-skills-panel">
+          <div className="v3-skills-title">Core skills</div>
+          {skills.map(s => (
+            <div key={s.name} className="v3-skill">
+              <div className="v3-skill-name">{s.name}</div>
+              <div className="v3-skill-bar">
+                <div className="v3-skill-fill" style={{ width: s.pct + '%' }}></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="v3-cards-row">
+        {[
+          { icon: '🗂', title: 'Product Management', sub: 'Roadmaps, OKRs, priorización' },
+          { icon: '👥', title: 'Team Leadership', sub: 'Squads, mentoring, 1:1s' },
+          { icon: '🔬', title: 'UX Research', sub: 'Entrevistas, usability, synthesis' },
+          { icon: '📊', title: 'Data & Strategy', sub: 'Métricas, análisis, decisiones' },
+        ].map(c => (
+          <div key={c.title} className="v3-mini-card">
+            <div className="v3-mini-icon">{c.icon}</div>
+            <div className="v3-mini-title">{c.title}</div>
+            <div className="v3-mini-sub">{c.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── VARIANT 4: DEEP PURPLE ── */
+function V4() {
+  const skills = [
+    { name: 'Product Strategy', hot: true },
+    { name: 'Team Leadership', hot: true },
+    { name: 'UX Research', hot: false },
+    { name: 'Stakeholder Mgmt', hot: false },
+    { name: 'Design Systems', hot: false },
+    { name: 'Agile / Scrum', hot: true },
+  ];
+
+  return (
+    <div className="v4">
+      <nav className="v4-nav">
+        <div className="v4-logo">Brenda <span>Jauregui</span></div>
+        <div className="v4-nav-links">
+          <span>Perfil</span>
+          <span>Proyectos</span>
+          <span>Logros</span>
+        </div>
+        <div className="v4-nav-cta">Contacto</div>
+      </nav>
+
+      <div className="v4-body">
+        <div className="v4-main">
+          <div className="v4-tag-row">
+            <div className="v4-tag hot">Open to work</div>
+            <div className="v4-tag">Product Management</div>
+            <div className="v4-tag">Design Leadership</div>
+          </div>
+
+          <h1 className="v4-title">
+            Strategic<br />
+            <em>Design</em><br />
+            Leader
+          </h1>
+
+          <p className="v4-sub">
+            UX Designer con visión de producto. 5+ años diseñando experiencias digitales y liderando equipos hacia soluciones de impacto real. Hoy orientada hacia product management y gestión estratégica.
+          </p>
+
+          <div className="v4-exp-list">
+            {[
+              { year: '2023 – hoy', role: 'UX Designer Lead', co: 'Empresa actual', desc: 'Liderazgo de equipo de diseño, alineación con stakeholders, definición de estrategia de producto.' },
+              { year: '2021 – 2023', role: 'Product Designer', co: 'Proyecto anterior', desc: 'Investigación con usuarios, prototipado, design systems y gestión de roadmap.' },
+              { year: '2021', role: 'NASA Space Apps', co: 'Challenge Internacional', desc: 'Proyecto de IA/ML para detección de debris marinos — equipo internacional.' },
+            ].map(e => (
+              <div key={e.role} className="v4-exp-row">
+                <div className="v4-exp-year">{e.year}</div>
+                <div>
+                  <div className="v4-exp-role">{e.role}</div>
+                  <div className="v4-exp-co">{e.co}</div>
+                  <div className="v4-exp-desc">{e.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="v4-side">
+          <div>
+            <div className="v4-side-label">Métricas</div>
+            <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
+              {[
+                { num: '5+', text: 'Años en UX & Producto' },
+                { num: '12', text: 'Proyectos entregados' },
+                { num: '3', text: 'Equipos coordinados' },
+              ].map(s => (
+                <div key={s.num} className="v4-stat">
+                  <div className="v4-stat-num">{s.num}</div>
+                  <div className="v4-stat-text">{s.text}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="v4-side-label">Habilidades clave</div>
+            <div className="v4-skills">
+              {skills.map(s => (
+                <div key={s.name} className="v4-skill-row">
+                  <span className="v4-skill-name">{s.name}</span>
+                  <div className={`v4-skill-dot${s.hot ? '' : ' mid'}`}></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── DESIGN CANVAS ── */
+function App() {
+  return (
+    <DCViewport>
+      <DCSection id="variations" title="Variaciones de Portafolio — Brenda Jauregui">
+        <DCArtboard id="v1" label="01 — Dark Gold" width={900} height={640}>
+          <V1 />
+        </DCArtboard>
+        <DCArtboard id="v2" label="02 — Cream Editorial" width={900} height={640}>
+          <V2 />
+        </DCArtboard>
+        <DCArtboard id="v3" label="03 — Modern Minimal" width={900} height={640}>
+          <V3 />
+        </DCArtboard>
+        <DCArtboard id="v4" label="04 — Deep Purple" width={900} height={640}>
+          <V4 />
+        </DCArtboard>
+      </DCSection>
+    </DCViewport>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

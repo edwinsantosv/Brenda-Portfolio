@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brenda Jauregui — Design Leader & Business Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root {
+  --bg:       #1A0F2E;
+  --bg2:      #241540;
+  --bg3:      #2D1B52;
+  --bg4:      #160C26;
+  --accent:   #8B5CF6;
+  --accent2:  #A78BFA;
+  --accent3:  #C4B5FD;
+  --light:    #EDE9FF;
+  --muted:    #8B80A8;
+  --muted2:   #6B6080;
+  --border:   #2E2050;
+  --border2:  #3D2A6A;
+
+  --font-display: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* ═══════════════════════════════════════
+   RESET + BASE
+═══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--light);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ═══════════════════════════════════════
+   NOISE TEXTURE OVERLAY
+═══════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 60px;
+  height: 64px;
+  background: rgba(26,15,46,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 18px; letter-spacing: 0.02em;
+  color: var(--light);
+}
+.nav-logo span { color: var(--accent2); font-style: italic; }
+.nav-links {
+  display: flex; gap: 36px;
+  font-size: 12px; letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.nav-links a { transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent2); }
+.nav-cta {
+  padding: 8px 22px;
+  background: var(--accent);
+  color: white;
+  font-size: 12px; letter-spacing: 0.04em;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--accent2); }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 100px 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%);
+  bottom: 0; left: 100px;
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-tags { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+.tag {
+  padding: 5px 14px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  font-size: 11px; color: var(--accent2);
+  letter-spacing: 0.06em; border-radius: 3px;
+}
+.tag.hot { background: var(--accent); border-color: var(--accent); color: white; }
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.0;
+  color: var(--light);
+}
+.hero-title em { font-style: italic; color: var(--accent2); }
+.hero-sub {
+  font-size: 15px; line-height: 1.8; color: var(--muted);
+  margin-top: 20px; max-width: 440px;
+}
+.hero-actions { display: flex; gap: 12px; margin-top: 32px; align-items: center; }
+.btn-primary {
+  padding: 13px 30px;
+  background: var(--accent);
+  color: white; font-size: 13px;
+  border-radius: 3px; transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--accent2); }
+.btn-ghost {
+  padding: 13px 30px;
+  border: 1px solid var(--border2);
+  color: var(--muted); font-size: 13px;
+  border-radius: 3px; transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent2); color: var(--accent2); }
+.hero-stats {
+  display: flex; flex-direction: column; gap: 0;
+  border-left: 1px solid var(--border);
+  padding-left: 48px;
+}
+.hero-stat {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.hero-stat:last-child { border-bottom: none; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 44px; color: var(--accent2); line-height: 1;
+}
+.stat-label {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-top: 6px;
+}
+
+/* ═══════════════════════════════════════
+   SECTION COMMONS
+═══════════════════════════════════════ */
+section {
+  position: relative; z-index: 1;
+  padding: 100px 60px;
+}
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before {
+  content: ''; display: block; width: 28px; height: 1px; background: var(--accent);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px); line-height: 1.1;
+  color: var(--light); margin-bottom: 48px;
+}
+.section-title em { font-style: italic; color: var(--accent2); }
+
+/* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+#about { background: var(--bg2); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.about-photo-placeholder {
+  aspect-ratio: 3/4;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted2);
+  position: relative; overflow: hidden;
+}
+.about-photo-placeholder::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, transparent 60%);
+}
+.photo-icon {
+  width: 48px; height: 48px;
+  border: 1px solid var(--border2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.about-content {}
+.about-lead {
+  font-size: 17px; line-height: 1.8; color: var(--light);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+.about-lead strong { font-weight: 600; color: var(--accent2); }
+.about-body {
+  font-size: 14px; line-height: 1.9; color: var(--muted);
+  margin-bottom: 32px;
+}
+.about-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+.chip {
+  padding: 6px 16px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  font-size: 11px; color: var(--accent3);
+  letter-spacing: 0.06em; border-radius: 2px;
+}
+.about-highlight {
+  margin-top: 36px;
+  padding: 20px 24px;
+  background: var(--bg3);
+  border-left: 3px solid var(--accent);
+  font-size: 14px; color: var(--muted); line-height: 1.7;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════
+   PROJECTS
+═══════════════════════════════════════ */
+#projects {}
+.projects-intro {
+  font-size: 14px; line-height: 1.9; color: var(--muted);
+  max-width: 640px; margin-bottom: 64px;
+}
+
+/* Project Card */
+.project-card {
+  margin-bottom: 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.project-card:hover { border-color: var(--border2); }
+.project-card.reverse { direction: rtl; }
+.project-card.reverse > * { direction: ltr; }
+
+.project-visual {
+  background: var(--bg3);
+  min-height: 360px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 16px;
+  padding: 40px;
+  position: relative; overflow: hidden;
+}
+.project-visual.nasa {
+  background: linear-gradient(135deg, #0D0A1E 0%, #1A0F2E 50%, #0A1628 100%);
+}
+.project-visual.bcp {
+  background: linear-gradient(135deg, #0A1E1A 0%, #1A0F2E 50%, #0A1E14 100%);
+}
+.project-visual.belcorp {
+  background: linear-gradient(135deg, #1E0A1A 0%, #2D1B52 50%, #1A0A1E 100%);
+}
+.project-visual.coop {
+  background: linear-gradient(135deg, #0A1A0E 0%, #1A0F2E 50%, #0E1A0A 100%);
+}
+.project-visual-glow {
+  position: absolute;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.project-badge {
+  position: absolute; top: 20px; left: 20px;
+  padding: 5px 12px;
+  background: rgba(139,92,246,0.2);
+  border: 1px solid var(--accent);
+  font-size: 10px; color: var(--accent2);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border-radius: 2px;
+}
+.project-award {
+  position: absolute; top: 20px; right: 20px;
+  padding: 5px 12px;
+  background: rgba(212,175,55,0.15);
+  border: 1px solid rgba(212,175,55,0.4);
+  font-size: 10px; color: #E8C55A;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+}
+.project-logo-text {
+  font-family: var(--font-display);
+  font-size: 56px; color: rgba(255,255,255,0.08);
+  line-height: 1;
+  position: absolute;
+  bottom: 20px; right: 24px;
+}
+.project-icon-row {
+  display: flex; gap: 12px; z-index: 1;
+}
+.project-icon {
+  width: 48px; height: 48px;
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 8px;
+  background: rgba(139,92,246,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.project-tag-row {
+  display: flex; gap: 6px; flex-wrap: wrap; z-index: 1;
+}
+.project-tag {
+  padding: 4px 10px;
+  background: rgba(26,15,46,0.6);
+  border: 1px solid rgba(139,92,246,0.25);
+  font-size: 9px; color: var(--accent3);
+  letter-spacing: 0.08em; border-radius: 2px;
+}
+
+.project-content {
+  padding: 44px 48px;
+  display: flex; flex-direction: column; gap: 0;
+}
+.project-client {
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 10px;
+}
+.project-name {
+  font-family: var(--font-display);
+  font-size: 28px; line-height: 1.2; color: var(--light);
+  margin-bottom: 16px;
+}
+.project-desc {
+  font-size: 13px; line-height: 1.8; color: var(--muted);
+  margin-bottom: 28px;
+}
+.project-role-box {
+  background: var(--bg3);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.project-role-label {
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.project-role-text {
+  font-size: 12px; color: var(--light); line-height: 1.7;
+}
+.project-bullets {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+  margin-bottom: 28px;
+}
+.project-bullets li {
+  font-size: 12px; color: var(--muted); line-height: 1.6;
+  padding-left: 16px; position: relative;
+}
+.project-bullets li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--accent); font-size: 10px;
+}
+.project-result {
+  padding: 14px 18px;
+  background: rgba(139,92,246,0.08);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 2px;
+  font-size: 12px; color: var(--accent3); line-height: 1.7;
+}
+.project-result strong { color: var(--accent2); font-weight: 600; }
+.project-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 16px;
+  font-size: 11px; color: var(--accent2);
+  letter-spacing: 0.06em;
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: rgba(167,139,250,0.3);
+}
+.project-link:hover { color: var(--accent3); }
+
+/* ═══════════════════════════════════════
+   SKILLS
+═══════════════════════════════════════ */
+#skills { background: var(--bg2); }
+.skills-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+}
+.skill-group {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 32px;
+}
+.skill-group-title {
+  font-family: var(--font-display);
+  font-size: 18px; color: var(--light);
+  margin-bottom: 6px;
+}
+.skill-group-sub {
+  font-size: 11px; color: var(--muted); margin-bottom: 24px;
+  letter-spacing: 0.04em;
+}
+.skill-item {
+  display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;
+}
+.skill-name-row {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.skill-name { font-size: 12px; color: var(--light); font-weight: 500; }
+.skill-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+}
+.skill-dot.mid { background: var(--accent2); opacity: 0.55; }
+.skill-bar { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.skill-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 2px; }
+
+.skills-tags-section {
+  margin-top: 48px;
+  padding: 32px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+}
+.skills-tags-title {
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 18px;
+}
+.skills-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════
+   RECOGNITION
+═══════════════════════════════════════ */
+#recognition {}
+.recognition-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+}
+.recognition-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 28px;
+  transition: border-color 0.2s;
+}
+.recognition-card:hover { border-color: var(--border2); }
+.rec-icon {
+  font-size: 28px; margin-bottom: 16px;
+}
+.rec-award {
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.rec-title {
+  font-family: var(--font-display);
+  font-size: 17px; color: var(--light); line-height: 1.3;
+  margin-bottom: 8px;
+}
+.rec-desc {
+  font-size: 12px; color: var(--muted); line-height: 1.6;
+}
+.rec-year {
+  font-size: 10px; color: var(--muted2); margin-top: 14px;
+  letter-spacing: 0.08em;
+}
+
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+#contact {
+  background: var(--bg4);
+  text-align: center;
+}
+.contact-inner { max-width: 600px; margin: 0 auto; }
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 60px); line-height: 1.0;
+  color: var(--light); margin-bottom: 20px;
+}
+.contact-title em { font-style: italic; color: var(--accent2); }
+.contact-sub {
+  font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 48px;
+}
+.contact-links {
+  display: flex; gap: 16px; justify-content: center; align-items: center;
+  flex-wrap: wrap;
+}
+.contact-link-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px;
+  border: 1px solid var(--border2);
+  color: var(--light); font-size: 13px;
+  border-radius: 3px; transition: all 0.2s;
+}
+.contact-link-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+.contact-link-btn.primary {
+  background: var(--accent); border-color: var(--accent);
+}
+.contact-link-btn.primary:hover { background: var(--accent2); border-color: var(--accent2); color: white; }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  padding: 28px 60px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11px; color: var(--muted2);
+  background: var(--bg4);
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 14px; color: var(--muted);
+}
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+.fade-up {
+  opacity: 1; transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.will-animate {
+  opacity: 0; transform: translateY(24px);
+}
+.fade-up.will-animate.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  section { padding: 64px 24px; }
+  #hero { padding: 100px 24px 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-stats { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 32px; flex-direction: row; flex-wrap: wrap; gap: 0; }
+  .hero-stat { border-bottom: none; border-right: 1px solid var(--border); padding: 16px 24px; }
+  .hero-stat:last-child { border-right: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-placeholder { aspect-ratio: 16/9; }
+  .project-card { grid-template-columns: 1fr; }
+  .project-card.reverse { direction: ltr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .recognition-grid { grid-template-columns: 1fr; }
+}
+
+  @media print {
+    @page { size: A4 portrait; margin: 1cm; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    
+    /* Reset scroll/fixed layout */
+    body { overflow: visible !important; }
+    nav { position: relative !important; backdrop-filter: none !important; }
+    
+    /* Remove animations/transitions */
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    .fade-up, .fade-up.will-animate { opacity: 1 !important; transform: none !important; }
+    
+    /* Remove hover states */
+    a:hover, .btn-primary:hover, .btn-ghost:hover { color: inherit; background: inherit; }
+    
+    /* Page breaks between sections */
+    #hero    { break-before: avoid; break-after: page; min-height: auto; padding: 40px 40px 32px; }
+    #about   { break-before: page; break-after: page; padding: 40px; }
+    .project-card { break-inside: avoid; break-before: page; margin-bottom: 0; }
+    #projects .section-eyebrow,
+    #projects .section-title,
+    #projects .projects-intro { break-after: avoid; }
+    #skills  { break-before: page; break-after: page; padding: 40px; }
+    #recognition { break-before: page; break-after: page; padding: 40px; }
+    #contact { break-before: page; padding: 40px; }
+    footer   { break-before: avoid; }
+    
+    /* Overflow visible for print */
+    section { overflow: visible !important; }
+    .project-visual { overflow: visible !important; min-height: 280px; }
+    
+    /* Fix grid widths */
+    .hero-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .about-grid { grid-template-columns: 1fr 2fr; gap: 40px; }
+    .project-card { grid-template-columns: 1fr 1fr; }
+    .project-card.reverse { direction: rtl; }
+    .project-card.reverse > * { direction: ltr; }
+    .skills-grid { grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    .recognition-grid { grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    
+    /* Typography scale down slightly */
+    .hero-title { font-size: 42px; }
+    .section-title { font-size: 32px; }
+    
+    /* Hide nav cta & interactive elements */
+    .nav-cta { display: none; }
+    .hero-actions .btn-ghost { display: none; }
+    
+    /* Fix photo placeholder height */
+    .about-photo-placeholder { min-height: 260px; aspect-ratio: auto; }
+    
+    /* Skill bars visible */
+    .skill-bar { overflow: visible; }
+    .skill-fill { display: block; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Brenda <span>Jauregui</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Let's talk</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-tags">
+        <div class="tag hot">Open to work</div>
+        <div class="tag">Product Management</div>
+        <div class="tag">Design Leadership</div>
+        <div class="tag">Business Strategy</div>
+      </div>
+      <h1 class="hero-title">
+        Design Leader<br />
+        &amp; Business<br />
+        <em>Professional</em>
+      </h1>
+      <p class="hero-sub">
+        Professional with several years of experience leading and developing projects in the Innovation field. Proven leadership skills and a successful track record delivering solutions for corporate and fast-growing global companies.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="https://www.linkedin.com/in/brendajz/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-stats fade-up" style="transition-delay:0.2s">
+      <div class="hero-stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years in UX & Product</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">International projects</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">57k</div>
+        <div class="stat-label">NASA Challenge participants beaten</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Awards & recognitions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="fade-up">
+        <div class="about-photo-placeholder">
+          <div class="photo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" stroke="#6B6080" stroke-width="1.5"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#6B6080" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>Photo placeholder</span>
+        </div>
+      </div>
+
+      <div class="fade-up" style="transition-delay:0.15s">
+        <div class="section-eyebrow">About me</div>
+        <h2 class="section-title">Hello, I'm <em>Brenda</em></h2>
+        <p class="about-lead">
+          <strong>Design Leader and Business Professional</strong> with experience leading multidisciplinary teams and delivering innovative solutions across UX/UI Design, Product Design and Business Consulting.
+        </p>
+        <p class="about-body">
+          Technologically astute with a solid work experience in both corporate environments and fast-growing global companies. I combine human-centered design thinking with strategic business vision to lead teams and products toward real impact.
+        </p>
+        <p class="about-body">
+          Currently transitioning from UX Design leadership into Product Management and strategic management roles — where I can apply my full toolkit: research, facilitation, stakeholder management, and product strategy.
+        </p>
+        <div class="about-highlight">
+          "My goal is to bridge design and business — leading teams that build products people love and organisations need."
+        </div>
+        <div class="about-chips">
+          <div class="chip">Product Strategy</div>
+          <div class="chip">Team Leadership</div>
+          <div class="chip">Stakeholder Management</div>
+          <div class="chip">Design Thinking</div>
+          <div class="chip">Agile / Scrum</div>
+          <div class="chip">Business Consulting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-eyebrow">Selected work</div>
+    <h2 class="section-title">Projects</h2>
+    <p class="projects-intro">
+      The following projects have been selected for the importance and impact of their solutions — from solving a worldwide problem related to plastic pollution for NASA, to empowering commercialisation channels using AI for a multinational company.
+    </p>
+
+    <!-- PROJECT 1: NASA -->
+    <div class="project-card fade-up">
+      <div class="project-visual nasa">
+        <div class="project-visual-glow"></div>
+        <div class="project-badge">Hackathon</div>
+        <div class="project-award">🥈 2nd Place · Global Finalist</div>
+        <div class="project-icon-row">
+          <div class="project-icon">🛰</div>
+          <div class="project-icon">🌊</div>
+          <div class="project-icon">🤖</div>
+        </div>
+        <div class="project-tag-row">
+          <div class="project-tag">AI / ML</div>
+          <div class="project-tag">Computer Vision</div>
+          <div class="project-tag">NLP</div>
+          <div class="project-tag">Satellite Data</div>
+        </div>
+        <div class="project-logo-text">NASA</div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-client">NASA — Space Apps Challenge 2021</div>
+        <h3 class="project-name">Track the Plastic</h3>
+        <p class="project-desc">
+          A digital platform that detects, monitors and quantifies plastic pollution in ocean coastal areas — using computer vision, NASA satellite imagery, a virtual assistant and NLP. Users can upload contaminated area images, access a global heat map and view historical pollution data.
+        </p>
+        <div class="project-role-box">
+          <div class="project-role-label">My role</div>
+          <div class="project-role-text">Leader of a multidisciplinary team: UX Designers, Data Engineer, AI Scientist, AI Engineer and Software Engineer.</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Led research, analysis and insights on marine plastic debris</li>
+          <li>Facilitated brainstorming sessions and solution architecture</li>
+          <li>Drove product development and feature definition</li>
+          <li>Prepared and presented the solution deliverable to NASA judges</li>
+        </ul>
+        <div class="project-result">
+          <strong>Result:</strong> 2nd place over 1,000+ proposals. Global Finalist Honorable Mention — the only Peruvian project among 57,000+ participants. Recognised by NASA employees and Peruvian national media.
+        </div>
+        <a href="https://2021.spaceappschallenge.org/challenges/statements/leveraging-aiml-for-plastic-marine-debris/teams/pauletx/project" target="_blank" class="project-link">View project on NASA ↗</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: BCP x OpenCovidPeru -->
+    <div class="project-card reverse fade-up">
+      <div class="project-visual bcp">
+        <div class="project-visual-glow"></div>
+        <div class="project-badge">Hackathon · 48h</div>
+        <div class="project-award">🏆 Awarded</div>
+        <div class="project-icon-row">
+          <div class="project-icon">🗺</div>
+          <div class="project-icon">📊</div>
+          <div class="project-icon">🏥</div>
+        </div>
+        <div class="project-tag-row">
+          <div class="project-tag">UX Research</div>
+          <div class="project-tag">Data Viz</div>
+          <div class="project-tag">Ethnography</div>
+          <div class="project-tag">Design Thinking</div>
+        </div>
+        <div class="project-logo-text">BCP</div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-client">BCP × OpenCovidPeru — 2021</div>
+        <h3 class="project-name">COVID-19 Data Platform</h3>
+        <p class="project-desc">
+          An interactive digital platform presenting COVID-19 data and statistics in a simple, citizen-friendly way. Built in 48 hours, the solution included an interactive map of Peru showing ICU beds, COVID beds, oxygen cylinders, pharmacies and health centres by region.
+        </p>
+        <div class="project-role-box">
+          <div class="project-role-label">My role</div>
+          <div class="project-role-text">Member of a multidisciplinary team: Data Engineer, Communicator, Sociologist, Software Engineers, Front-End, Back-End and UX Designer.</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Research, analysis and insights from government COVID-19 data</li>
+          <li>Led a Design Thinking workshop and brainstorming session</li>
+          <li>Conducted qualitative research — interviews and questionnaires</li>
+          <li>Designed friendly data visualisations to make complex info accessible</li>
+        </ul>
+        <div class="project-result">
+          <strong>Result:</strong> Solution accepted by BCP (largest bank in Peru) and OpenCovid. Platform implemented, awarded and recognised by the Peruvian national press (El Comercio).
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: Belcorp -->
+    <div class="project-card fade-up">
+      <div class="project-visual belcorp">
+        <div class="project-visual-glow"></div>
+        <div class="project-badge">Consultancy</div>
+        <div class="project-award">🥉 3rd Prize</div>
+        <div class="project-icon-row">
+          <div class="project-icon">💄</div>
+          <div class="project-icon">🤖</div>
+          <div class="project-icon">🛒</div>
+        </div>
+        <div class="project-tag-row">
+          <div class="project-tag">AI Assistant</div>
+          <div class="project-tag">E-commerce</div>
+          <div class="project-tag">CX Strategy</div>
+          <div class="project-tag">Product Design</div>
+        </div>
+        <div class="project-logo-text">Belcorp</div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-client">Belcorp — Multinational Beauty · 15 Countries</div>
+        <h3 class="project-name">AI-Powered Beauty Assistant</h3>
+        <p class="project-desc">
+          A virtual AI assistant for Belcorp's e-commerce (L'Bel, Cyzone, Ésika) that suggests products based on skin type, connects customers with sales advisors, and gathers purchase behaviour data — improving the customer experience throughout the entire buying journey.
+        </p>
+        <div class="project-role-box">
+          <div class="project-role-label">My role</div>
+          <div class="project-role-text">Led a multidisciplinary team: AI Engineer, Full-Stack, UX Designer and Software Engineer. Took ownership of team tasks management.</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Research and insights on Belcorp's e-commerce sales performance</li>
+          <li>Stakeholder interviews: Ésika sellers and Head of Marketing & Analytics</li>
+          <li>Led creative development of the AI solution concept</li>
+          <li>Prepared and delivered the full business consultancy proposal</li>
+        </ul>
+        <div class="project-result">
+          <strong>Result:</strong> 3rd prize in competition with 300+ participants from 13 countries. Solution projected to improve CX and conversion in Belcorp's digital channel.
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4: Co-op -->
+    <div class="project-card reverse fade-up">
+      <div class="project-visual coop">
+        <div class="project-visual-glow"></div>
+        <div class="project-badge">Consultancy</div>
+        <div class="project-award">🏅 Finalist</div>
+        <div class="project-icon-row">
+          <div class="project-icon">♻️</div>
+          <div class="project-icon">🏪</div>
+          <div class="project-icon">📈</div>
+        </div>
+        <div class="project-tag-row">
+          <div class="project-tag">Sustainability</div>
+          <div class="project-tag">Business Strategy</div>
+          <div class="project-tag">SWOT Analysis</div>
+          <div class="project-tag">McKinsey Framework</div>
+        </div>
+        <div class="project-logo-text">Co-op</div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-client">Co-op UK — University of Leeds · 2023</div>
+        <h3 class="project-name">Sustainability Strategy</h3>
+        <p class="project-desc">
+          Strategic consultancy for Co-op (UK's 5th largest food retailer) to enhance their sustainability practices and position as the best in the retail industry. Applied the Three Horizons Framework used by McKinsey & Company to structure actionable recommendations.
+        </p>
+        <div class="project-role-box">
+          <div class="project-role-label">My role</div>
+          <div class="project-role-text">Part of a multidisciplinary team of Business Master students from the University of Leeds.</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Researched UK Government Net Zero sustainability initiatives</li>
+          <li>Competitive analysis: Waitrose, Tesco, Sainsbury's, Aldi, M&S, Asda</li>
+          <li>SWOT analysis and consumer behaviour research by generation</li>
+          <li>Presented recommendations to Co-op's Marketing &amp; Sustainability Directors</li>
+        </ul>
+        <div class="project-result">
+          <strong>Result:</strong> Project recognised by the jury panel (including Co-op's Sustainability Director) and selected as finalist in the competition.
+        </div>
+        <a href="https://students.business.leeds.ac.uk/lubs-and-co-op-student-team-sustainability-challenge-2023/" target="_blank" class="project-link">View project at Leeds University ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-eyebrow">Capabilities</div>
+    <h2 class="section-title">Skills &amp; <em>Expertise</em></h2>
+
+    <div class="skills-grid">
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Leadership & Management</div>
+        <div class="skill-group-sub">People, teams and strategy</div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Team Leadership</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Stakeholder Management</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Project Management</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Product Strategy</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Agile / Scrum</span><div class="skill-dot mid"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up" style="transition-delay:0.1s">
+        <div class="skill-group-title">Research & Analysis</div>
+        <div class="skill-group-sub">Understanding problems deeply</div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Qualitative Research</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Quantitative Research</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Benchmarking</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Business Strategy</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:83%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Data Analysis & Insights</span><div class="skill-dot mid"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:76%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up" style="transition-delay:0.2s">
+        <div class="skill-group-title">Design & Delivery</div>
+        <div class="skill-group-sub">Craft and execution</div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">UX / UI Design</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Design Thinking</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Prototyping</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Presentations & Comms</span><div class="skill-dot"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name-row"><span class="skill-name">Creative Facilitation</span><div class="skill-dot mid"></div></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:86%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-tags-section fade-up">
+      <div class="skills-tags-title">Also experienced in</div>
+      <div class="skills-tags">
+        <div class="chip">Architecture Formulation</div>
+        <div class="chip">Solution Flow Design</div>
+        <div class="chip">Workshop Facilitation</div>
+        <div class="chip">Ethnographic Research</div>
+        <div class="chip">Consumer Behaviour</div>
+        <div class="chip">SWOT Analysis</div>
+        <div class="chip">Three Horizons Framework</div>
+        <div class="chip">Fast-paced environments</div>
+        <div class="chip">Cross-functional teams</div>
+        <div class="chip">Client presentations</div>
+        <div class="chip">E-commerce strategy</div>
+        <div class="chip">Innovation consulting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section id="recognition">
+  <div class="section-inner">
+    <div class="section-eyebrow">Awards & Press</div>
+    <h2 class="section-title">Recognition</h2>
+
+    <div class="recognition-grid">
+      <div class="recognition-card fade-up">
+        <div class="rec-icon">🛰</div>
+        <div class="rec-award">NASA Space Apps Challenge 2021</div>
+        <div class="rec-title">Global Finalist — Honorable Mention</div>
+        <div class="rec-desc">The only Peruvian project to receive a Global Finalist Honorable Mention among 57,000+ participants. Awarded by NASA employees as a project with high potential.</div>
+        <div class="rec-year">2021 · International</div>
+      </div>
+
+      <div class="recognition-card fade-up" style="transition-delay:0.1s">
+        <div class="rec-icon">🥉</div>
+        <div class="rec-award">Belcorp Innovation Challenge</div>
+        <div class="rec-title">3rd Prize — AI E-commerce Solution</div>
+        <div class="rec-desc">3rd place in an international competition with 300+ participants from 13 different countries, for the AI-powered beauty assistant consultancy proposal.</div>
+        <div class="rec-year">2022 · 13 Countries</div>
+      </div>
+
+      <div class="recognition-card fade-up" style="transition-delay:0.2s">
+        <div class="rec-icon">🏅</div>
+        <div class="rec-award">University of Leeds × Co-op</div>
+        <div class="rec-title">Finalist — Sustainability Challenge 2023</div>
+        <div class="rec-desc">Project selected as finalist by a jury that included Co-op's Sustainability Director. Recognised for strategic use of the Three Horizons Framework in a UK retail context.</div>
+        <div class="rec-year">2023 · United Kingdom</div>
+      </div>
+
+      <div class="recognition-card fade-up">
+        <div class="rec-icon">📰</div>
+        <div class="rec-award">Andina — National Press</div>
+        <div class="rec-title">Featured in Peruvian State News Agency</div>
+        <div class="rec-desc">The NASA "Track the Plastic" project was featured in Andina, the official Peruvian state news agency, as a representative project in the NASA global competition.</div>
+        <div class="rec-year">2021 · Peru</div>
+      </div>
+
+      <div class="recognition-card fade-up" style="transition-delay:0.1s">
+        <div class="rec-icon">📰</div>
+        <div class="rec-award">El Comercio — National Press</div>
+        <div class="rec-title">Featured in Peru's Leading Newspaper</div>
+        <div class="rec-desc">The OpenCovidPeru platform was featured in El Comercio, Peru's most widely read newspaper, for its contribution to making COVID-19 data accessible to citizens.</div>
+        <div class="rec-year">2021 · Peru</div>
+      </div>
+
+      <div class="recognition-card fade-up" style="transition-delay:0.2s">
+        <div class="rec-icon">🏆</div>
+        <div class="rec-award">BCP × OpenCovidPeru Hackathon</div>
+        <div class="rec-title">Awarded Solution</div>
+        <div class="rec-desc">The COVID-19 data platform solution was accepted and awarded by BCP (Peru's largest bank) and OpenCovidPeru, and was subsequently implemented for public use.</div>
+        <div class="rec-year">2021 · Peru</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow" style="justify-content:center">Get in touch</div>
+    <h2 class="contact-title">Let's work<br /><em>together</em></h2>
+    <p class="contact-sub">
+      I'm currently open to Product Management, Design Leadership and Business Strategy roles. Let's talk about how I can contribute to your team.
+    </p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/brendajz/" target="_blank" class="contact-link-btn primary">
+        Connect on LinkedIn ↗
+      </a>
+      <a href="https://brendsjz.my.canva.site/original-size-brenda-jauregui-portfolio" target="_blank" class="contact-link-btn">
+        View Full Portfolio ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Brenda Jauregui</div>
+  <div>Design Leader & Business Professional · 2024</div>
+</footer>
+
+<script>
+// Mark non-hero elements for animation (no-op in print)
+document.querySelectorAll('#about .fade-up, #projects .fade-up, #skills .fade-up, #recognition .fade-up, #contact .fade-up').forEach(el => {
+  el.classList.add('will-animate');
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.fade-up.will-animate').forEach(el => observer.observe(el));
+
+// Auto-print after fonts loaded
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => setTimeout(() => window.print(), 600));
+} else {
+  setTimeout(() => window.print(), 1200);
+}
+</script>
+</body>
+</html>
