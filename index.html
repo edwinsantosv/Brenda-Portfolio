@@ -215,6 +215,9 @@ section {
   color: var(--muted2);
   position: relative; overflow: hidden;
 }
+.about-photo {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+}
 .about-photo-placeholder::after {
   content: '';
   position: absolute; inset: 0;
@@ -301,6 +304,12 @@ section {
   width: 300px; height: 300px; border-radius: 50%;
   background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%);
   top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.project-visual-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: contain; object-position: center center;
+  padding: 40px;
+  opacity: 0.9;
 }
 .project-badge {
   position: absolute; top: 20px; left: 20px;
@@ -639,15 +648,7 @@ footer {
   <div class="section-inner">
     <div class="about-grid">
       <div class="fade-up">
-        <div class="about-photo-placeholder">
-          <div class="photo-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="4" stroke="#6B6080" stroke-width="1.5"/>
-              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#6B6080" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span>Photo placeholder</span>
-        </div>
+        <img src="imgs/brenda_main_photo.png" alt="Brenda" class="about-photo">
       </div>
 
       <div class="fade-up" style="transition-delay:0.15s">
@@ -690,21 +691,9 @@ footer {
     <!-- PROJECT 1: NASA -->
     <div class="project-card fade-up">
       <div class="project-visual nasa">
-        <div class="project-visual-glow"></div>
+        <img src="imgs/track_the_plastic.jpg" alt="Track the Plastic — NASA Space Apps" class="project-visual-img">
         <div class="project-badge">Hackathon</div>
         <div class="project-award">🥈 2nd Place · Global Finalist</div>
-        <div class="project-icon-row">
-          <div class="project-icon">🛰</div>
-          <div class="project-icon">🌊</div>
-          <div class="project-icon">🤖</div>
-        </div>
-        <div class="project-tag-row">
-          <div class="project-tag">AI / ML</div>
-          <div class="project-tag">Computer Vision</div>
-          <div class="project-tag">NLP</div>
-          <div class="project-tag">Satellite Data</div>
-        </div>
-        <div class="project-logo-text">NASA</div>
       </div>
 
       <div class="project-content">
@@ -734,21 +723,9 @@ footer {
     <!-- PROJECT 2: BCP x OpenCovidPeru -->
     <div class="project-card reverse fade-up">
       <div class="project-visual bcp">
-        <div class="project-visual-glow"></div>
+        <img src="imgs/portada_covid_19.jpg" alt="COVID-19 Data Platform — BCP" class="project-visual-img">
         <div class="project-badge">Hackathon · 48h</div>
         <div class="project-award">🏆 Awarded</div>
-        <div class="project-icon-row">
-          <div class="project-icon">🗺</div>
-          <div class="project-icon">📊</div>
-          <div class="project-icon">🏥</div>
-        </div>
-        <div class="project-tag-row">
-          <div class="project-tag">UX Research</div>
-          <div class="project-tag">Data Viz</div>
-          <div class="project-tag">Ethnography</div>
-          <div class="project-tag">Design Thinking</div>
-        </div>
-        <div class="project-logo-text">BCP</div>
       </div>
 
       <div class="project-content">
@@ -777,21 +754,9 @@ footer {
     <!-- PROJECT 3: Belcorp -->
     <div class="project-card fade-up">
       <div class="project-visual belcorp">
-        <div class="project-visual-glow"></div>
+        <img src="imgs/portada_ai_beauty.jpg" alt="AI-Powered Beauty Assistant — Belcorp" class="project-visual-img">
         <div class="project-badge">Consultancy</div>
         <div class="project-award">🥉 3rd Prize</div>
-        <div class="project-icon-row">
-          <div class="project-icon">💄</div>
-          <div class="project-icon">🤖</div>
-          <div class="project-icon">🛒</div>
-        </div>
-        <div class="project-tag-row">
-          <div class="project-tag">AI Assistant</div>
-          <div class="project-tag">E-commerce</div>
-          <div class="project-tag">CX Strategy</div>
-          <div class="project-tag">Product Design</div>
-        </div>
-        <div class="project-logo-text">Belcorp</div>
       </div>
 
       <div class="project-content">
@@ -820,21 +785,9 @@ footer {
     <!-- PROJECT 4: Co-op -->
     <div class="project-card reverse fade-up">
       <div class="project-visual coop">
-        <div class="project-visual-glow"></div>
+        <img src="imgs/portada_coop.jpg" alt="Sustainability Strategy — Co-op" class="project-visual-img">
         <div class="project-badge">Consultancy</div>
         <div class="project-award">🏅 Finalist</div>
-        <div class="project-icon-row">
-          <div class="project-icon">♻️</div>
-          <div class="project-icon">🏪</div>
-          <div class="project-icon">📈</div>
-        </div>
-        <div class="project-tag-row">
-          <div class="project-tag">Sustainability</div>
-          <div class="project-tag">Business Strategy</div>
-          <div class="project-tag">SWOT Analysis</div>
-          <div class="project-tag">McKinsey Framework</div>
-        </div>
-        <div class="project-logo-text">Co-op</div>
       </div>
 
       <div class="project-content">
