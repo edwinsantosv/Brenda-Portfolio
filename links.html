@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brenda Jauregui — Links</title>
+<meta name="description" content="Senior UX Designer & Design Lead — Brenda Jauregui Zanabria. Portfolio, LinkedIn and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #1A0F2E;
+  --bg2:      #241540;
+  --bg3:      #2D1B52;
+  --bg4:      #160C26;
+  --accent:   #8B5CF6;
+  --accent2:  #A78BFA;
+  --accent3:  #C4B5FD;
+  --light:    #EDE9FF;
+  --muted:    #8B80A8;
+  --muted2:   #6B6080;
+  --border:   #2E2050;
+  --border2:  #3D2A6A;
+  --font-display: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--light);
+  font-family: var(--font-body);
+  font-size: 15px; line-height: 1.6;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 48px 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.4;
+}
+.bg-glow1, .bg-glow2 {
+  position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+}
+.bg-glow1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%);
+  top: -150px; right: -150px;
+}
+.bg-glow2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(167,139,250,0.12) 0%, transparent 70%);
+  bottom: -100px; left: -100px;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.card {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 460px;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.photo {
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+  box-shadow: 0 0 0 6px rgba(139,92,246,0.12);
+}
+.name {
+  font-family: var(--font-display);
+  font-size: 32px; line-height: 1.1;
+  margin-top: 24px;
+  color: var(--light);
+}
+.name em { font-style: italic; color: var(--accent2); }
+.headline {
+  font-size: 13px; letter-spacing: 0.04em;
+  color: var(--accent3);
+  margin-top: 10px;
+  text-transform: none;
+}
+.subline {
+  font-size: 12px; color: var(--muted);
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}
+.tag-row {
+  display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+  margin-top: 18px;
+}
+.tag {
+  padding: 5px 12px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  font-size: 10px; color: var(--accent2);
+  letter-spacing: 0.08em; border-radius: 3px;
+  text-transform: uppercase;
+}
+.tag.hot { background: var(--accent); border-color: var(--accent); color: white; }
+
+.links {
+  width: 100%;
+  display: flex; flex-direction: column; gap: 12px;
+  margin-top: 36px;
+}
+.link-btn {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.link-btn:hover {
+  border-color: var(--accent2);
+  background: var(--bg3);
+  transform: translateY(-1px);
+}
+.link-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.link-btn.primary:hover {
+  background: var(--accent2);
+  border-color: var(--accent2);
+}
+.link-icon {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.link-btn.primary .link-icon {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.2);
+}
+.link-text {
+  flex: 1;
+  text-align: left;
+}
+.link-title {
+  font-size: 14px; color: var(--light);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.link-btn.primary .link-title { color: white; }
+.link-sub {
+  font-size: 11px; color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+.link-btn.primary .link-sub { color: rgba(255,255,255,0.7); }
+.link-arrow {
+  font-size: 14px; color: var(--muted);
+  flex-shrink: 0;
+}
+.link-btn:hover .link-arrow { color: var(--accent2); }
+.link-btn.primary .link-arrow { color: rgba(255,255,255,0.6); }
+
+.footer {
+  margin-top: 40px;
+  font-size: 11px;
+  color: var(--muted2);
+  letter-spacing: 0.06em;
+}
+.footer a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(139,128,168,0.3); }
+.footer a:hover { color: var(--accent2); }
+
+@media (max-width: 480px) {
+  .name { font-size: 28px; }
+  .photo { width: 110px; height: 110px; }
+  .link-btn { padding: 14px 18px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-glow1"></div>
+<div class="bg-glow2"></div>
+
+<main class="card">
+  <img src="imgs/brenda_main_photo.png" alt="Brenda Jauregui" class="photo">
+
+  <h1 class="name">Brenda <em>Jauregui</em></h1>
+  <div class="headline">Senior UX Designer &amp; Design Lead</div>
+  <div class="subline">Lima, Peru · Currently @ NEORIS</div>
+
+  <div class="tag-row">
+    <div class="tag hot">Open to US roles</div>
+    <div class="tag">UX · Product</div>
+    <div class="tag">MSc Leeds</div>
+  </div>
+
+  <nav class="links">
+    <a href="https://edwinsantosv.github.io/Brenda-Portfolio/" class="link-btn primary">
+      <div class="link-icon">🎨</div>
+      <div class="link-text">
+        <div class="link-title">Portfolio</div>
+        <div class="link-sub">Selected work · NASA, Belcorp, BCP, Co-op</div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+
+    <a href="https://www.linkedin.com/in/brendajz/" target="_blank" rel="noopener" class="link-btn">
+      <div class="link-icon">in</div>
+      <div class="link-text">
+        <div class="link-title">LinkedIn</div>
+        <div class="link-sub">Full experience · 11k+ followers</div>
+      </div>
+      <div class="link-arrow">↗</div>
+    </a>
+
+    <a href="https://edwinsantosv.github.io/Brenda-Portfolio/#projects" class="link-btn">
+      <div class="link-icon">📁</div>
+      <div class="link-text">
+        <div class="link-title">Case Studies</div>
+        <div class="link-sub">NASA · BCP · Belcorp · Co-op UK</div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+
+    <a href="https://edwinsantosv.github.io/Brenda-Portfolio/#education" class="link-btn">
+      <div class="link-icon">🎓</div>
+      <div class="link-text">
+        <div class="link-title">Education</div>
+        <div class="link-sub">MSc University of Leeds · PUCP</div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+
+    <a href="https://edwinsantosv.github.io/Brenda-Portfolio/#leadership" class="link-btn">
+      <div class="link-icon">🎤</div>
+      <div class="link-text">
+        <div class="link-title">Speaking &amp; Leadership</div>
+        <div class="link-sub">PUCP · Teens in AI · OpenCovid Peru</div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+  </nav>
+
+  <div class="footer">
+    Built with care · <a href="https://edwinsantosv.github.io/Brenda-Portfolio/">brenda jauregui · portfolio</a>
+  </div>
+</main>
+
+</body>
+</html>
