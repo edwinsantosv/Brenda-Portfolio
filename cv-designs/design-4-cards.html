@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brenda Jauregui — Cards CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #F8F5FF;
+      --ink: #1A0F2E;
+      --muted: #6B6584;
+      --accent: #5B3FBF;
+      --accent-2: #B794F4;
+      --accent-3: #FBEAFF;
+      --card: #FFFFFF;
+      --line: #E4DBFA;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+    .page {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 14mm 14mm;
+      position: relative;
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .page { padding: 10mm 12mm; max-width: none; min-height: 297mm; }
+      @page { size: A4; margin: 0; }
+      body, .page { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    .header-card {
+      background: linear-gradient(135deg, #5B3FBF 0%, #8B5CF6 55%, #B794F4 100%);
+      border-radius: 24px;
+      padding: 22px 26px;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-card::before {
+      content: '';
+      position: absolute;
+      right: -50px; top: -50px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+      border-radius: 50%;
+    }
+    .header-card::after {
+      content: '';
+      position: absolute;
+      left: -80px; bottom: -80px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+      border-radius: 50%;
+    }
+    .header-card > * { position: relative; z-index: 1; }
+    .name-side {}
+    .tag-line {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    h1 {
+      font-weight: 800;
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+    .role {
+      font-size: 15px;
+      opacity: 0.95;
+      font-weight: 500;
+    }
+    .contact-side {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+      text-align: right;
+      font-weight: 500;
+    }
+    .contact-side a { color: white; text-decoration: none; }
+    .contact-side .item {
+      background: rgba(255,255,255,0.15);
+      padding: 5px 10px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 8px rgba(91,63,191,0.04);
+    }
+    .card.wide { grid-column: span 2; }
+    .card.accent {
+      background: linear-gradient(135deg, #FBEAFF, #F0E8FF);
+      border-color: var(--accent-2);
+    }
+    .card.dark {
+      background: var(--ink);
+      color: #F8F5FF;
+    }
+    .card.dark h2, .card.dark .metric-value { color: white; }
+    .card.dark .metric-label { color: var(--accent-2); }
+
+    h2 {
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2 .dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .about-card {
+      grid-column: span 2;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 14px 20px;
+      border: 1px solid var(--line);
+      font-size: 12.5px;
+      line-height: 1.55;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .about-card .quote {
+      font-size: 34px;
+      color: var(--accent-2);
+      font-weight: 800;
+      line-height: 1;
+    }
+    .about-card strong { color: var(--accent); }
+
+    .exp {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .exp:last-child { border-bottom: none; padding-bottom: 0; }
+    .exp:first-child { padding-top: 0; }
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .exp-company {
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--ink);
+    }
+    .exp-date {
+      font-size: 10px;
+      background: var(--accent-3);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .exp-title {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .exp ul {
+      list-style: none;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .exp ul li {
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .exp ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent-2);
+    }
+    strong { color: var(--accent); font-weight: 700; }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .pill {
+      font-size: 10px;
+      padding: 3px 10px;
+      background: var(--accent-3);
+      color: var(--accent);
+      border-radius: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .pill.star {
+      background: var(--accent);
+      color: white;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .metric {
+      padding: 8px 10px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+    }
+    .metric-value {
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .metric-label {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 3px;
+      font-weight: 600;
+    }
+
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      font-size: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .lang-row:last-child { border-bottom: none; }
+    .lang-row strong { color: var(--ink); }
+    .lang-dots { display: flex; gap: 3px; }
+    .lang-dots span {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--line);
+    }
+    .lang-dots span.on { background: var(--accent); }
+
+    .cert-item {
+      display: flex;
+      gap: 8px;
+      padding: 6px 0;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+    }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-icon {
+      width: 22px; height: 22px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-radius: 8px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+    .cert-item strong { display: block; font-size: 11.5px; color: var(--ink); }
+    .cert-item span { font-size: 10px; color: var(--muted); }
+
+    .award-item {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 11px;
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-item .rank {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 1px 6px;
+      border-radius: 6px;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      margin-right: 4px;
+    }
+    .award-item strong { display: block; margin-bottom: 1px; color: var(--ink); }
+    .award-item span { color: var(--muted); font-size: 10px; }
+
+    footer {
+      grid-column: span 2;
+      margin-top: 4px;
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    footer strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header-card">
+      <div class="name-side">
+        <div class="tag-line">Curriculum Vitae · 2026</div>
+        <h1>Brenda Jauregui Zanabria</h1>
+        <div class="role">Senior UX Designer &amp; Project Design Lead</div>
+      </div>
+      <div class="contact-side">
+        <div class="item">📍 Lima, Peru</div>
+        <div class="item"><a href="mailto:brendajauregu@gmail.com">✉ brendajauregu@gmail.com</a></div>
+        <div class="item"><a href="https://www.linkedin.com/in/brendajz/">in/brendajz</a></div>
+        <div class="item"><a href="https://brenda96.github.io/portfolio.github.io/">Portfolio ↗</a></div>
+      </div>
+    </div>
+
+    <div class="layout" style="grid-template-columns: 1fr;">
+      <div class="about-card">
+        <div class="quote">"</div>
+        <div>
+          <strong>7+ years shipping user-centered products</strong> across banking, fintech, insurance, edtech, and retail. Lead multidisciplinary teams of 8-10+ across Product, UX, UI, Research, and Engineering. Define measurable KPIs (NPS, conversion, adoption). <strong>NN/g UX Management Certified</strong> · MSc Global Strategy &amp; Innovation, University of Leeds.
+        </div>
+      </div>
+    </div>
+
+    <div class="layout" style="margin-top:12px;">
+
+      <div class="card wide">
+        <h2><span class="dot"></span>Experience</h2>
+
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-company">EPAM NEORIS</span>
+            <span class="exp-date">Oct 2025 — Present</span>
+          </div>
+          <div class="exp-title">Project Design Lead (BBVA) · Lima, Peru</div>
+          <ul>
+            <li>Own <strong>3+</strong> end-to-end design initiatives in digital banking; lead a team of <strong>8+</strong> across Product, UX, UI, Research.</li>
+            <li>Defined experience KPIs (NPS, conversion, adoption) unlocking <strong>60%+ gains</strong> in efficiency and engagement.</li>
+            <li>Institutionalized Design Systems; <strong>reduced delivery timelines by 40%</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-company">Banco de Crédito del Perú (BCP)</span>
+            <span class="exp-date">Jun 2024 — Present</span>
+          </div>
+          <div class="exp-title">Senior Product Designer, Consultant · Lima, Peru</div>
+          <ul>
+            <li>Lead design of BCP's core Salesforce product with Business Specialists and Product Owners.</li>
+            <li>Facilitate usability testing with Maze; translate research into design decisions aligned to business objectives.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-company">Skillmapper</span>
+            <span class="exp-date">Oct 2021 — May 2024</span>
+          </div>
+          <div class="exp-title">Product Lead &amp; UX · Paris, France (Remote)</div>
+          <ul>
+            <li>Led a team of <strong>10+</strong> across engineering, marketing, sales, and UX; reported directly to the CEO.</li>
+            <li>Search page and Chrome Extension redesigns: <strong>65% more searches</strong>, <strong>80% conversion rate</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-company">Interseguro</span>
+            <span class="exp-date">Dec 2020 — Sep 2021</span>
+          </div>
+          <div class="exp-title">UX/UI Designer &amp; Researcher · Lima, Peru</div>
+          <ul>
+            <li>Sales System Management platform grounded in research: <strong>+80%</strong> sales efficiency, <strong>+75%</strong> email conversion.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-company">Rextie</span>
+            <span class="exp-date">Jun 2020 — Dec 2020</span>
+          </div>
+          <div class="exp-title">UX/UI Designer &amp; Researcher · Lima, Peru</div>
+          <ul>
+            <li>Led UX research across web and mobile; personas, empathy maps, journey maps under Design Thinking.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="dot"></span>Craft &amp; Tools</h2>
+        <div style="font-size:11px; color:var(--muted); font-weight:600; margin-bottom:6px;">CRAFT</div>
+        <div class="pills" style="margin-bottom:12px;">
+          <span class="pill star">User Research</span>
+          <span class="pill star">Usability Testing</span>
+          <span class="pill">A/B Testing</span>
+          <span class="pill">Journey Maps</span>
+          <span class="pill">Personas</span>
+          <span class="pill">Wireframing</span>
+          <span class="pill">Prototyping</span>
+          <span class="pill">Interaction Design</span>
+          <span class="pill star">Design Systems</span>
+          <span class="pill">Accessibility</span>
+        </div>
+        <div style="font-size:11px; color:var(--muted); font-weight:600; margin-bottom:6px;">TOOLS</div>
+        <div class="pills">
+          <span class="pill star">Figma</span>
+          <span class="pill">Sketch</span>
+          <span class="pill">Adobe XD</span>
+          <span class="pill star">Maze</span>
+          <span class="pill">Hotjar</span>
+          <span class="pill">Lookback</span>
+          <span class="pill">Jira</span>
+          <span class="pill">Salesforce</span>
+          <span class="pill">Notion</span>
+          <span class="pill">GA</span>
+          <span class="pill">HTML/CSS/JS</span>
+        </div>
+      </div>
+
+      <div class="card dark">
+        <h2><span class="dot" style="background:var(--accent-2)"></span>Impact Metrics</h2>
+        <div class="metric-grid">
+          <div class="metric">
+            <div class="metric-value">7+</div>
+            <div class="metric-label">Years shipping products</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">10+</div>
+            <div class="metric-label">Team size led</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">80%</div>
+            <div class="metric-label">Conversion lift</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">40%</div>
+            <div class="metric-label">Faster delivery</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="dot"></span>Languages</h2>
+        <div class="lang-row">
+          <strong>English</strong>
+          <div class="lang-dots">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span>
+          </div>
+        </div>
+        <div class="lang-row">
+          <strong>Spanish</strong>
+          <div class="lang-dots">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+          </div>
+        </div>
+        <div class="lang-row">
+          <strong>French</strong>
+          <div class="lang-dots">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card accent">
+        <h2><span class="dot"></span>Education</h2>
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-company">University of Leeds</span>
+            <span class="exp-date">2022 — 2023</span>
+          </div>
+          <div class="exp-title">MSc Global Strategy &amp; Innovation Mgmt (2:1) · Leeds, UK</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:4px;"><strong>Master's Prize</strong> · Dissertation Distinction</div>
+        </div>
+        <div class="exp">
+          <div class="exp-head">
+            <span class="exp-company">PUCP</span>
+            <span class="exp-date">Graduated</span>
+          </div>
+          <div class="exp-title">B.Sc. Media &amp; Communications · Top 10%</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="dot"></span>Certifications</h2>
+        <div class="cert-item">
+          <div class="cert-icon">NN</div>
+          <div><strong>UX Management</strong><span>Nielsen Norman Group, Silicon Valley · 2022</span></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">HEC</div>
+          <div><strong>Gestion de l'UX</strong><span>HEC Montréal · 2022</span></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">CX</div>
+          <div><strong>Customer Experience</strong><span>Pacífico Business School · 2021</span></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">DT</div>
+          <div><strong>Design Thinking</strong><span>IDEO U · 2020</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="dot"></span>Awards &amp; Speaking</h2>
+        <div class="award-item">
+          <span class="rank">2ND</span><strong style="display:inline;">NASA Space Apps 2021</strong>
+          <span>Global Finalist Honorable Mention</span>
+        </div>
+        <div class="award-item">
+          <span class="rank">3RD</span><strong style="display:inline;">Belcorp Hackathon 2.0</strong>
+          <span>3rd of 300+ across 13 countries</span>
+        </div>
+        <div class="award-item">
+          <span class="rank">WIN</span><strong style="display:inline;">BCP × OpenCovid</strong>
+          <span>Hackathon Winner (Data Crew)</span>
+        </div>
+        <div class="award-item">
+          <strong>Featured in El Comercio &amp; Andina</strong>
+          <span>Coverage for OpenCovid Peru platform</span>
+        </div>
+        <div class="award-item">
+          <strong>PUCP Innovation Talk · 2024</strong>
+          <span>Guest Speaker</span>
+        </div>
+      </div>
+
+      <footer>Brenda Jauregui Zanabria · <strong>Senior UX Designer &amp; Design Lead</strong> · 2026</footer>
+    </div>
+  </div>
+</body>
+</html>

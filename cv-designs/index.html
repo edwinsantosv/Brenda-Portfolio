@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brenda Jauregui — CV Designs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f6f4fb;
+      color: #1a0f2e;
+      padding: 60px 24px;
+      min-height: 100vh;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: #1a0f2e;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #5a5a6e;
+      margin-bottom: 48px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 10px 40px rgba(91, 63, 191, 0.08);
+      border: 1px solid rgba(91, 63, 191, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(91, 63, 191, 0.15);
+    }
+    .num {
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: #5b3fbf;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .card h2 {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .card p {
+      color: #5a5a6e;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .swatch {
+      display: flex;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .swatch span {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      color: #5a5a6e;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Brenda Jauregui — CV Designs</h1>
+    <p class="subtitle">Pick a style. Each design uses the same content but tells a different visual story. Print-ready A4.</p>
+
+    <div class="grid">
+      <a class="card" href="design-1-editorial.html">
+        <div class="num">01 — Editorial</div>
+        <h2>The Magazine</h2>
+        <p>Serif headlines, warm cream palette, two-column article feel. For sophisticated, portfolio-book vibes.</p>
+        <div class="swatch">
+          <span style="background:#F5F1E8"></span>
+          <span style="background:#1E1E1E"></span>
+          <span style="background:#7C3AED"></span>
+        </div>
+      </a>
+
+      <a class="card" href="design-2-timeline.html">
+        <div class="num">02 — Timeline</div>
+        <h2>The Product Designer</h2>
+        <p>Modern sans, vertical timeline rail with dots, dark accent. Tech-forward and minimal.</p>
+        <div class="swatch">
+          <span style="background:#0F0F1E"></span>
+          <span style="background:#F5F5F7"></span>
+          <span style="background:#8B5CF6"></span>
+        </div>
+      </a>
+
+      <a class="card" href="design-3-bold.html">
+        <div class="num">03 — Bold</div>
+        <h2>The Statement</h2>
+        <p>Brutalist typography, oversized headers, high-contrast grid. Confident and senior-level.</p>
+        <div class="swatch">
+          <span style="background:#000"></span>
+          <span style="background:#FFF; border:1px solid #ccc;"></span>
+          <span style="background:#FF3B5C"></span>
+        </div>
+      </a>
+
+      <a class="card" href="design-4-cards.html">
+        <div class="num">04 — Cards</div>
+        <h2>The Designer</h2>
+        <p>Card-based grid with pills and gradients. Playful, approachable, brand-aware.</p>
+        <div class="swatch">
+          <span style="background:linear-gradient(135deg,#5B3FBF,#B794F4)"></span>
+          <span style="background:#FBEAFF"></span>
+          <span style="background:#1A0F2E"></span>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+      All designs feature Brenda Jauregui's verified content: 7+ years across banking, fintech, insurance, and edtech; NN/g UX Management Certified; MSc from Leeds. Print any design to PDF via <kbd>Cmd/Ctrl + P</kbd>.
+    </footer>
+  </div>
+</body>
+</html>

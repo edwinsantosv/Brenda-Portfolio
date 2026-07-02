@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brenda Jauregui — Editorial CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #F5F1E8;
+      --ink: #1E1E1E;
+      --muted: #6B6558;
+      --accent: #7C3AED;
+      --rule: #C9C4B4;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+    .page {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--paper);
+      padding: 22mm 20mm;
+      position: relative;
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .page { padding: 15mm 18mm; max-width: none; min-height: 297mm; }
+      @page { size: A4; margin: 0; }
+    }
+    .masthead {
+      border-top: 4px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .name-block {
+      margin: 30px 0 20px;
+      text-align: left;
+    }
+    .name-block .kicker {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--accent);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 62px;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .role {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--muted);
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 10px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .contact-bar a { color: var(--ink); text-decoration: none; font-weight: 500; }
+    .contact-bar a:hover { color: var(--accent); }
+    .pull {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--ink);
+      padding: 12px 0 16px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 20px;
+      column-count: 2;
+      column-gap: 30px;
+    }
+    .pull::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-style: normal;
+      font-size: 44px;
+      float: left;
+      line-height: 0.85;
+      padding: 3px 8px 0 0;
+      color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+    section h2 .num {
+      font-family: 'Inter', sans-serif;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .job {
+      padding: 8px 0;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .job:last-child { border-bottom: none; }
+    .job-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .job-company {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--ink);
+    }
+    .job-date {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .job-title {
+      font-style: italic;
+      color: var(--accent);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    .job ul {
+      margin-left: 14px;
+      color: var(--ink);
+      font-size: 11.5px;
+      line-height: 1.45;
+    }
+    .job ul li { margin-bottom: 1px; }
+    strong { color: var(--ink); }
+    .side section { margin-bottom: 16px; }
+    .side p, .side ul { font-size: 11px; color: var(--ink); line-height: 1.5; }
+    .side ul { list-style: none; }
+    .side .item { margin-bottom: 6px; }
+    .side .item strong { display: block; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 12.5px; }
+    .side .item span { color: var(--muted); font-size: 10.5px; font-style: italic; }
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      padding: 2px 0;
+    }
+    .dots { color: var(--accent); font-size: 9px; letter-spacing: 1px; }
+    .quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 12px;
+      border-left: 2px solid var(--accent);
+      margin: 10px 0;
+      line-height: 1.4;
+    }
+    footer {
+      margin-top: 20px;
+      padding-top: 8px;
+      border-top: 1px solid var(--ink);
+      font-size: 10px;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <span>Curriculum Vitae · Vol. 07</span>
+      <span>Established Lima · Peru</span>
+      <span>2026 Edition</span>
+    </header>
+
+    <div class="name-block">
+      <div class="kicker">A Product Designer's Portfolio</div>
+      <h1>Brenda<br>Jauregui Zanabria</h1>
+      <div class="role">Senior UX Designer &amp; Project Design Lead</div>
+    </div>
+
+    <div class="contact-bar">
+      <a href="mailto:brendajauregu@gmail.com">brendajauregu@gmail.com</a>
+      <a href="https://www.linkedin.com/in/brendajz/">linkedin.com/in/brendajz</a>
+      <a href="https://brenda96.github.io/portfolio.github.io/">Portfolio</a>
+      <span>Lima, Peru</span>
+      <span>English · Spanish · French</span>
+    </div>
+
+    <p class="pull">Seven years spent shipping human-centered digital products across banking, fintech, insurance, edtech and retail. Certified in UX Management by the Nielsen Norman Group. Currently leading design at EPAM NEORIS on the BBVA account, where measurable KPIs meet strategic design systems and multidisciplinary teams of eight and beyond.</p>
+
+    <div class="grid">
+      <div class="main">
+        <section>
+          <h2><span class="num">01</span> Experience</h2>
+
+          <div class="job">
+            <div class="job-head">
+              <div class="job-company">EPAM NEORIS</div>
+              <div class="job-date">Oct 2025 — Present</div>
+            </div>
+            <div class="job-title">Project Design Lead (BBVA) · Lima, Peru</div>
+            <ul>
+              <li>Own 3+ end-to-end design initiatives in digital banking; lead a multidisciplinary team of <strong>8+</strong> across Product, UX, UI, and Research.</li>
+              <li>Defined experience KPIs (NPS, conversion, adoption) unlocking <strong>60%+ gains</strong> in efficiency and engagement.</li>
+              <li>Institutionalized Design Systems across retail and business banking; <strong>reduced delivery timelines by 40%</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div class="job-company">Banco de Crédito del Perú (BCP)</div>
+              <div class="job-date">Jun 2024 — Present</div>
+            </div>
+            <div class="job-title">Senior Product Designer, Consultant · Lima, Peru</div>
+            <ul>
+              <li>Lead the design of BCP's core Salesforce product with Business Specialists and Product Owners.</li>
+              <li>Facilitate usability testing with Maze; align design decisions with measurable business objectives.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div class="job-company">Skillmapper</div>
+              <div class="job-date">Oct 2021 — May 2024</div>
+            </div>
+            <div class="job-title">Product Lead &amp; UX · Paris, France (Remote)</div>
+            <ul>
+              <li>Led a team of <strong>10+</strong> across engineering, marketing, sales, and UX; reported directly to the CEO.</li>
+              <li>Redesigned the search page and Chrome Extension: <strong>65% more searches</strong>, <strong>80% conversion rate</strong>.</li>
+              <li>Facilitated Design Thinking ideation shaping a validated product roadmap.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div class="job-company">Interseguro</div>
+              <div class="job-date">Dec 2020 — Sep 2021</div>
+            </div>
+            <div class="job-title">UX/UI Designer &amp; Researcher · Lima, Peru</div>
+            <ul>
+              <li>Shipped a Sales System Management platform grounded in research; sales efficiency <strong>+80%</strong>.</li>
+              <li>Ran A/B tests on car and travel insurance; drove a <strong>75% lift in email conversion</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div class="job-company">Rextie</div>
+              <div class="job-date">Jun 2020 — Dec 2020</div>
+            </div>
+            <div class="job-title">UX/UI Designer &amp; Researcher · Lima, Peru</div>
+            <ul>
+              <li>Led UX research across web and mobile products; ran personas, empathy maps, and journey maps.</li>
+              <li>Executed usability testing with Maze and Lookback; designed interfaces in Figma per Material Design.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section style="margin-top:16px;">
+          <h2><span class="num">02</span> Education</h2>
+          <div class="job">
+            <div class="job-head">
+              <div class="job-company">University of Leeds</div>
+              <div class="job-date">2022 — 2023</div>
+            </div>
+            <div class="job-title">MSc Global Strategy &amp; Innovation Management (2:1) · Leeds, UK</div>
+            <div style="font-size:11px;color:var(--muted);font-style:italic;">Master's Prize for Extracurricular Activity · Dissertation Distinction.</div>
+          </div>
+          <div class="job">
+            <div class="job-head">
+              <div class="job-company">Pontificia Universidad Católica del Perú</div>
+              <div class="job-date">Graduated</div>
+            </div>
+            <div class="job-title">B.Sc. Media &amp; Communications · Lima, Peru — Top 10% of cohort</div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="side">
+        <section>
+          <h2><span class="num">A</span> Craft</h2>
+          <p>User Research · Usability Testing · A/B Testing · Journey Maps · Personas · Wireframing · Prototyping · Interaction Design · Design Systems · Accessibility (WCAG).</p>
+        </section>
+
+        <section>
+          <h2><span class="num">B</span> Tools</h2>
+          <p>Figma · Sketch · Adobe XD · Maze · Hotjar · Lookback · Jira · Notion · Salesforce · Google Analytics · HTML / CSS / JS.</p>
+        </section>
+
+        <section>
+          <h2><span class="num">C</span> Languages</h2>
+          <div class="lang-row"><span><strong>English</strong> — Fluent</span><span class="dots">●●●●○</span></div>
+          <div class="lang-row"><span><strong>Spanish</strong> — Native</span><span class="dots">●●●●●</span></div>
+          <div class="lang-row"><span><strong>French</strong> — Intermediate</span><span class="dots">●●●○○</span></div>
+        </section>
+
+        <section>
+          <h2><span class="num">D</span> Certifications</h2>
+          <div class="item"><strong>NN/g UX Management</strong><span>Nielsen Norman Group, 2022</span></div>
+          <div class="item"><strong>Gestion de l'UX</strong><span>HEC Montréal, 2022</span></div>
+          <div class="item"><strong>Customer Experience</strong><span>Pacífico Business School, 2021</span></div>
+          <div class="item"><strong>Design Thinking</strong><span>IDEO U, 2020</span></div>
+        </section>
+
+        <section>
+          <h2><span class="num">E</span> Awards</h2>
+          <div class="item"><strong>NASA Space Apps 2021</strong><span>2nd place · Global Finalist</span></div>
+          <div class="item"><strong>Belcorp Hackathon 2.0</strong><span>3rd of 300+ / 13 countries</span></div>
+          <div class="item"><strong>BCP × OpenCovid</strong><span>Hackathon Winner</span></div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>Brenda Jauregui Zanabria · Curriculum Vitae · 2026 · Lima, Peru</footer>
+  </div>
+</body>
+</html>

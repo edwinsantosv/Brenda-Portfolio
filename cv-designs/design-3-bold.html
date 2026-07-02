@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brenda Jauregui — Bold CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #FAFAF7;
+      --ink: #000000;
+      --muted: #4A4A4A;
+      --accent: #FF3B5C;
+      --accent-2: #FFF0F3;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Archivo', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.4;
+      padding: 40px 20px;
+    }
+    .page {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--paper);
+      padding: 14mm 14mm;
+      position: relative;
+      border: 3px solid var(--ink);
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .page { padding: 12mm 12mm; max-width: none; min-height: 297mm; border: 3px solid var(--ink); }
+      @page { size: A4; margin: 0; }
+      body, .page { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .top-bar .accent { color: var(--accent); }
+
+    .hero {
+      padding: 18px 0;
+      border-bottom: 3px solid var(--ink);
+      position: relative;
+    }
+    h1 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 88px;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    h1 .zab { color: var(--accent); }
+    .taglines {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      align-items: end;
+      margin-top: 8px;
+    }
+    .role {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .role .mark {
+      background: var(--accent);
+      color: white;
+      padding: 2px 8px 2px 8px;
+      display: inline-block;
+    }
+    .contact-block {
+      font-family: 'Archivo', sans-serif;
+      font-size: 11px;
+      color: var(--ink);
+      text-align: right;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+    .contact-block a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+
+    .about {
+      padding: 14px 0;
+      border-bottom: 2px solid var(--ink);
+      font-size: 13.5px;
+      line-height: 1.5;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .about strong {
+      background: var(--accent);
+      color: white;
+      padding: 1px 5px;
+      font-weight: 900;
+    }
+    .about em { font-style: normal; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-bottom: 2px solid var(--ink);
+    }
+    .grid .cell {
+      padding: 12px 14px;
+      border-right: 2px solid var(--ink);
+    }
+    .grid .cell:last-child { border-right: none; }
+    .cell-label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .cell-value {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 22px;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .cell-value small {
+      font-family: 'Archivo', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--ink);
+      padding: 18px 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    h2::before {
+      content: '';
+      width: 32px; height: 6px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 20px;
+      padding-top: 6px;
+    }
+
+    .exp {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--ink);
+    }
+    .exp:last-child { border-bottom: none; }
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .exp-company {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 16px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .exp-date {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .exp-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .exp ul {
+      list-style: none;
+      font-size: 11.5px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .exp ul li {
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .exp ul li::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 8px;
+      top: 4px;
+    }
+    strong { font-weight: 900; }
+
+    aside section { margin-bottom: 14px; }
+    .side-h {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: white;
+      padding: 3px 8px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .side p, .side-body { font-size: 11.5px; line-height: 1.4; color: var(--ink); font-weight: 500; }
+
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 12px;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--ink);
+    }
+    .lang-row:last-child { border-bottom: none; }
+    .lang-row .lv {
+      font-family: 'Archivo', sans-serif;
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .cert-item, .award-item {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--ink);
+      font-size: 11px;
+    }
+    .cert-item:last-child, .award-item:last-child { border-bottom: none; }
+    .cert-item strong, .award-item strong {
+      display: block;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 12px;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .cert-item span, .award-item span { color: var(--muted); font-size: 10.5px; }
+
+    footer {
+      margin-top: 18px;
+      padding-top: 10px;
+      border-top: 3px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    footer .accent { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <span>CV · 2026 Edition</span>
+      <span class="accent">● Available for Senior Roles</span>
+      <span>Lima → Global</span>
+    </div>
+
+    <div class="hero">
+      <h1>Brenda<br>Jauregui <span class="zab">Zanabria</span></h1>
+      <div class="taglines">
+        <div class="role">Senior UX Designer <span class="mark">+ Design Lead</span></div>
+        <div class="contact-block">
+          <div><a href="mailto:brendajauregu@gmail.com">brendajauregu@gmail.com</a></div>
+          <div><a href="https://www.linkedin.com/in/brendajz/">linkedin.com/in/brendajz</a></div>
+          <div><a href="https://brenda96.github.io/portfolio.github.io/">Portfolio</a> · Lima, Peru</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about">
+      <strong>7+ years</strong> shipping user-centered digital products across banking, fintech, insurance, edtech and retail. Lead multidisciplinary teams of <em>8-10+</em>. Define measurable KPIs (NPS, conversion, adoption) and translate business strategy into design outcomes. <strong>NN/g UX Management Certified</strong> · MSc Global Strategy &amp; Innovation, University of Leeds.
+    </div>
+
+    <div class="grid">
+      <div class="cell">
+        <div class="cell-label">Years</div>
+        <div class="cell-value">7+<small>shipping products</small></div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Team Size</div>
+        <div class="cell-value">10<small>engineers, designers, PMs</small></div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Impact</div>
+        <div class="cell-value">80%<small>conversion lift</small></div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Delivery</div>
+        <div class="cell-value">40%<small>faster time-to-market</small></div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <main>
+        <h2>Experience</h2>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="exp-company">EPAM NEORIS</div>
+            <div class="exp-date">OCT 2025 · NOW</div>
+          </div>
+          <div class="exp-title">Project Design Lead (BBVA) · Lima</div>
+          <ul>
+            <li>Own <strong>3+</strong> end-to-end design initiatives in digital banking; lead a team of <strong>8+</strong> across Product, UX, UI, Research.</li>
+            <li>Defined experience KPIs unlocking <strong>60%+ gains</strong> in efficiency and engagement.</li>
+            <li>Institutionalized Design Systems; <strong>reduced delivery timelines by 40%</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="exp-company">BCP</div>
+            <div class="exp-date">JUN 2024 · NOW</div>
+          </div>
+          <div class="exp-title">Senior Product Designer, Consultant · Lima</div>
+          <ul>
+            <li>Lead design strategy of BCP's core Salesforce product with Business Specialists and Product Owners.</li>
+            <li>Facilitate usability testing with Maze; align design decisions with business objectives.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="exp-company">Skillmapper</div>
+            <div class="exp-date">2021 · 2024</div>
+          </div>
+          <div class="exp-title">Product Lead &amp; UX · Paris (Remote)</div>
+          <ul>
+            <li>Led a team of <strong>10+</strong> across engineering, marketing, sales, and UX; reported to the CEO.</li>
+            <li>Search page and Chrome Extension redesigns: <strong>65% more searches</strong>, <strong>80% conversion</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="exp-company">Interseguro</div>
+            <div class="exp-date">2020 · 2021</div>
+          </div>
+          <div class="exp-title">UX/UI Designer &amp; Researcher · Lima</div>
+          <ul>
+            <li>Sales System Management platform grounded in research: <strong>+80%</strong> sales efficiency.</li>
+            <li>A/B tests on car and travel insurance: <strong>+75%</strong> email conversion.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="exp-company">Rextie</div>
+            <div class="exp-date">2020</div>
+          </div>
+          <div class="exp-title">UX/UI Designer &amp; Researcher · Lima</div>
+          <ul>
+            <li>Led UX research across web and mobile; personas, empathy maps, journey maps.</li>
+            <li>Usability testing with Maze and Lookback; interfaces in Figma per Material Design.</li>
+          </ul>
+        </div>
+
+        <h2>Education</h2>
+        <div class="exp">
+          <div class="exp-head">
+            <div class="exp-company">University of Leeds</div>
+            <div class="exp-date">2022 · 2023</div>
+          </div>
+          <div class="exp-title">MSc Global Strategy &amp; Innovation Mgmt (2:1) · Leeds, UK</div>
+          <ul>
+            <li><strong>Master's Prize</strong> for Extracurricular Activity · Dissertation Distinction.</li>
+          </ul>
+        </div>
+        <div class="exp">
+          <div class="exp-head">
+            <div class="exp-company">PUCP</div>
+            <div class="exp-date">GRADUATED</div>
+          </div>
+          <div class="exp-title">B.Sc. Media &amp; Communications · Lima — Top 10% of cohort</div>
+        </div>
+      </main>
+
+      <aside class="side">
+        <section>
+          <div class="side-h">Craft</div>
+          <div class="side-body">User Research · Usability Testing · A/B Testing · Journey Maps · Personas · Wireframing · Prototyping · Interaction Design · Design Systems · Accessibility.</div>
+        </section>
+
+        <section>
+          <div class="side-h">Tools</div>
+          <div class="side-body">Figma · Sketch · Adobe XD · Maze · Hotjar · Lookback · Jira · Salesforce · Notion · Google Analytics · HTML/CSS/JS.</div>
+        </section>
+
+        <section>
+          <div class="side-h">Languages</div>
+          <div class="lang-row"><span>English</span><span class="lv">Fluent · C1</span></div>
+          <div class="lang-row"><span>Spanish</span><span class="lv">Native</span></div>
+          <div class="lang-row"><span>French</span><span class="lv">Intermediate · B2</span></div>
+        </section>
+
+        <section>
+          <div class="side-h">Certifications</div>
+          <div class="cert-item"><strong>NN/g UX Management</strong><span>Nielsen Norman Group, 2022</span></div>
+          <div class="cert-item"><strong>Gestion de l'UX</strong><span>HEC Montréal, 2022</span></div>
+          <div class="cert-item"><strong>Customer Experience</strong><span>Pacífico BS, 2021</span></div>
+          <div class="cert-item"><strong>Design Thinking</strong><span>IDEO U, 2020</span></div>
+        </section>
+
+        <section>
+          <div class="side-h">Awards</div>
+          <div class="award-item"><strong>NASA Space Apps 2021</strong><span>2nd · Global Finalist</span></div>
+          <div class="award-item"><strong>Belcorp Hackathon 2.0</strong><span>3rd of 300+ / 13 countries</span></div>
+          <div class="award-item"><strong>BCP × OpenCovid</strong><span>Hackathon Winner</span></div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      <span>Brenda Jauregui Zanabria</span>
+      <span class="accent">■ 2026 Edition</span>
+      <span>page 01 of 01</span>
+    </footer>
+  </div>
+</body>
+</html>
